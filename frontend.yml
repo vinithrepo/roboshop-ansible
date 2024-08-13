@@ -5,7 +5,7 @@
     - name: Installing Nginx
       ansible.builtin.yum:
         - name: nginx
-          state: latest
+          state: installed
     - name: copy
       ansible.builtin.copy:
         src: nginx-roboshop.conf
