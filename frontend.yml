@@ -4,8 +4,8 @@
   tasks:
     - name: Installing Nginx
       ansible.builtin.yum:
-        - name: nginx
-          state: installed
+        name: nginx
+        state: installed
     - name: copy
       ansible.builtin.copy:
         src: nginx-roboshop.conf
