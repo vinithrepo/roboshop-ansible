@@ -6,7 +6,6 @@
       ansible.builtin.yum:
         - name: nginx
           state: latest
-          enabled: yes
     - name: copy
       ansible.builtin.copy:
         src: nginx-roboshop.conf
