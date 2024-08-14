@@ -1,0 +1,16 @@
+
+- name: rpm download
+  ansible.builtin.shell:  curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+- name: Install NodeJS
+  ansible.builtin.yum:
+    - name: nodejs
+      state: installed
+- name: app pre-requisites
+  ansible.builtin.import_tasks: app-preq.yml
+- name: downloading dependencies
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: app pre-requisites
+  ansible.builtin.import_tasks: mongo-schema.yml
