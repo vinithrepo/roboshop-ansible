@@ -1,5 +1,3 @@
-
-
 - name: Adding app user roboshop
   ansible.builtin.user:
     name: roboshop
