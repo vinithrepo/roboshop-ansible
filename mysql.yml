@@ -12,7 +12,7 @@
 
     - name: Install Mysql Community server
       ansible.builtin.yum:
-        name: yum install mysql-community-server
+        name: mysql-community-server
         state: installed
 
     - name: Restarting mysql systemd service
