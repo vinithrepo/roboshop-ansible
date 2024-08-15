@@ -11,11 +11,13 @@
       ansible.builtin.shell: yum module disable mysql
 
     - name: Install Mysql Community server
-      ansible.builtin.yum: yum install mysql-community-server
-      state: installed
+      ansible.builtin.yum:
+        name: yum install mysql-community-server
+        state: installed
 
     - name: Restarting mysql systemd service
       ansible.builtin.systemd:
+        name: mysqld
         state: restarted
         enabled: yes
     - name: Set root password
