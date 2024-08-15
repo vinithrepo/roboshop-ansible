@@ -3,16 +3,18 @@
   become: true
   tasks:
     - name: Install redis rpm
-      ansible.builtin.yum: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-      state: installed
-      disable_gpg_check: true
+      ansible.builtin.yum:
+        name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+        state: installed
+        disable_gpg_check: true
 
     - name: Enable redis
       ansible.builtin.shell: yum module enable redis:remi-6.2 -y
 
     - name: Install redis
-      ansible.builtin.yum: redis
-      state: installed
+      ansible.builtin.yum:
+       name: redis
+       state: installed
 
     - name: Update listen address /etc/redis.conf
       ansible.builtin.replace:
