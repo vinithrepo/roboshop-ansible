@@ -27,9 +27,3 @@
         read_priv: .*
         write_priv: .*
         state: present
-  systemctl enable rabbitmq-server   &>>${log}
-  systemctl restart rabbitmq-server   &>>${log}
-  func_exit_status
-  echo  -e "\e[36m>>>> add userpass <<<<\e[0m"   | tee -a  ${log}
-  rabbitmqctl add_user roboshop ${rabbitmq_app_password}
-  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
