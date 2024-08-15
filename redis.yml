@@ -30,5 +30,6 @@
 
     - name: systemd service
       ansible.builtin.systemd:
+        name: redis
         state: restarted
         enabled: yes
