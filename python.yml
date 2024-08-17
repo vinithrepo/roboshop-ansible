@@ -1,10 +1,3 @@
-
-#    sed -i "s/rabbitmq_app_password/${rabbitmq_app_password}/"  /etc/systemd/system/${component}.service
-    echo  -e "\e[36m>>>> install python requirements <<<<\e[0m"   | tee -a  ${log}
-       &>>${log}
-    func_exit_status
-    func_systemd
-  }
 - name: Install python
   ansible.builtin.yum:
     name:
@@ -16,8 +9,8 @@
 - name: Setup App pre requisites
   ansible.builtin.import_tasks: app-preq.yml
 
--  name: Download python dependencies
-   ansible.builtin.shell: pip3.6 install -r requirements.txt
+- name: Download python dependencies
+  ansible.builtin.shell: pip3.6 install -r requirements.txt
 
 - name: SystemD Setup
   ansible.builtin.import_tasks: systemd-setup.yml
