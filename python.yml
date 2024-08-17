@@ -1,10 +1,7 @@
-  echo  -e "\e[36m>>>> install python <<<<\e[0m"   | tee -a  ${log}
-    dnf install  -y   &>>${log}
-    func_exit_status
-    func_apppreq
-    sed -i "s/rabbitmq_app_password/${rabbitmq_app_password}/"  /etc/systemd/system/${component}.service
+
+#    sed -i "s/rabbitmq_app_password/${rabbitmq_app_password}/"  /etc/systemd/system/${component}.service
     echo  -e "\e[36m>>>> install python requirements <<<<\e[0m"   | tee -a  ${log}
-    pip3.6 install -r requirements.txt   &>>${log}
+       &>>${log}
     func_exit_status
     func_systemd
   }
@@ -15,3 +12,12 @@
       - gcc
       - python3-devel
     state: installed
+
+- name: Setup App pre requisites
+  ansible.builtin.import_tasks: app-preq.yml
+
+-  name: Download python dependencies
+   ansible.builtin.shell: pip3.6 install -r requirements.txt
+
+- name: SystemD Setup
+  ansible.builtin.import_tasks: systemd-setup.yml
