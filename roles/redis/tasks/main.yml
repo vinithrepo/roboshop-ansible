@@ -4,11 +4,11 @@
 #    state: installed
 #    disable_gpg_check: true
 
-- name: Enable redis 7
-  ansible.builtin.shell: yum module disable redis -y ; yum module enable redis:7 -y
+- name: Enable Redis 7
+  ansible.builtin.shell: dnf module disable redis -y ; dnf module enable redis:7 -y
 
 - name: Install redis
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: redis
     state: latest   #installed
 
