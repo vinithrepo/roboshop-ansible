@@ -10,7 +10,7 @@
 - name: Install redis
   ansible.builtin.dnf:
     name: redis
-    state: latest   #installed - latest
+    state: installed   #installed - latest
 
 
 #- name: Update listen address /etc/redis.conf
