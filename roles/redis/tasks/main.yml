@@ -8,7 +8,7 @@
 #  ansible.builtin.shell: dnf module disable redis -y ; dnf module enable redis:7 -y
 
 - name: Install redis
-  ansible.builtin.dnf:
+  ansible.builtin.yum:
     name: redis
     state: installed   #installed - latest
 
