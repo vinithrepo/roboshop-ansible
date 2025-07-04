@@ -5,7 +5,7 @@
 #    disable_gpg_check: true
 
 - name: Disable Default Redis
-  ansible.builtin.shell:  dnf module disable redis -y ; dnf module enable redis:7 -y
+  ansible.builtin.shell:  dnf module disable redis -y
 
 - name: Enable 7 Version
   ansible.builtin.shell:   dnf module enable redis:7 -y
