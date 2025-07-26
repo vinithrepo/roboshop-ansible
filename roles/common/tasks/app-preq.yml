@@ -13,6 +13,6 @@
     state: directory
 - name: Unarchive  app content
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}-v3.zip #-v3 is not there
     dest: /app
     remote_src: yes
